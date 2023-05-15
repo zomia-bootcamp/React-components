@@ -1,4 +1,4 @@
-## React Components
+# React Components
 
 ## What is a component?
 
@@ -59,7 +59,73 @@ Navigate to [FirstComponent.js](./components/FirstComponent.js), and verify that
 If not, correct it.
 
 
+## The Return Keyword in Functional Components
 
+When we create a functional component, we're basically creating a blueprint that can generate the necessary elements whenever we use its name. It generates these elements by following a set of instructions that we provide.
+
+If you think this sounds similar to a regular JavaScript function, you're correct! Functional components can be seen as similar to regular JavaScript functions, but their purpose is to assemble a part of the user interface based on the given instructions.
+
+Now, let's talk more about these instructions.
+
+Firstly, the instructions should be written inside the function's curly braces. It's like a code block that contains the instructions:
+
+```jsx
+function Button() {
+  // Instructions go here, inside the curly braces.
+}
+```
+
+These instructions can include a combination of HTML markup, CSS, and JavaScript to create the desired outcome. However, there's one important requirement - we must always include a `return` statement.
+
+The function is expected to generate JSX code that can be used to display something on the web browser. Therefore, when we define functional components, we need to return a JSX element.
+
+```jsx
+function BackButton() {
+  return <button>Back To Home</button>;
+}
+```
+
+Of course, just defining `<button>Back To Home</button>` doesn't actually display it on the browser yet. We've only defined our component.
+
+Let's continue so we can learn how to render it and understand why the `return` statement is necessary!
+
+### Exercises
+
+In [FirstComponent.js](./components/FirstComponent.js), add a `return` statement with a jsx expression.
+
+
+## Importing and Exporting React Components
+
+
+Before we can use our defined component and render it on the web page, there are a few more steps we need to take.
+
+In a typical React application, there are two main files: `App.js` and `index.js`. `App.js` is the top level of the application, and `index.js` is the entry point.
+
+So far, we've defined our component inside `App.js`. However, because index.js is the entry point, we need to export our component from App.js to index.js so that it can be rendered.
+
+React components are great because they are reusable. We can keep our component pieces separate, organized, and reusable by putting them in separate files and exporting them to where we need them.
+
+To export a component, we can use the `export` keyword and specify whether it's a default export or a named export. In this case, we'll stick with a default export. If you need a reminder about exports, you can check out the MDN web docs.
+
+After defining the function component in App.js, we can export it as the default export like this:
+
+```jsx
+export default MyComponent;
+```
+
+Then, we can go to our index.js file and import our component from './App':
+
+```jsx
+import MyComponent from './App';
+```
+
+This allows us to use `MyComponent` in index.js.
+
+---
+
+Let me know if you need any further assistance!
+
+![exports](https://i.stack.imgur.com/uCCXS.png)
 
 
 
