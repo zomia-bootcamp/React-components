@@ -1,70 +1,101 @@
-# Getting Started with Create React App
+## React Components
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## What is a component?
 
-## Available Scripts
+A React component is like a building block or a puzzle piece that helps create the user interface of a web application. It represents a specific part or functionality of the application.
 
-In the project directory, you can run:
+![component diagram](https://miro.medium.com/v2/resize:fit:1400/1*NX0GtVytAI8soIUMAuUSeQ.png)
 
-### `npm start`
+By combining multiple components together, you can create a complete user interface for your web application. Each component focuses on a specific task, and they work together to build a cohesive and interactive experience for the users.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Let's head over to the [Airbnb](https://www.airbnb.com/) website, and see how components are used in the real world.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Creating a Function Component
 
-### `npm test`
+In React, we can define components using JavaScript functions. This type of component is called a function component. Function components have become the standard in modern React applications, especially with the introduction of Hooks.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Function components allow us to break down our interface into smaller, reusable pieces. We can create components for specific parts of our website, such as the search bar, navigation bar, or dashboard content. These components can be easily composed to build complex React applications.
 
-### `npm run build`
+Let's take a closer look at an example from the previous exercise:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```jsx
+import React from 'react';
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+function MyComponent() {
+  return <h1>Hello, I'm a functional React Component!</h1>;
+}
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+export default MyComponent;
+```
 
-### `npm run eject`
+In this code snippet, we define a function component called `MyComponent`. Inside the function, we use the `return` statement to specify the JSX code that represents the component's output. In this case, it's a simple `<h1>` element with a greeting.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+The `export default` statement allows us to export `MyComponent` so that it can be used in other parts of our application.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+By using function components, we can create reusable and modular code, making our React application more maintainable and easier to understand. As we progress, we will explore more advanced techniques and patterns to build powerful React components.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Exercises
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+In the root directory of this project, create a new directory called `components`, with a new file called `FirstComponent.js`.
+Import the React library at the top of the file, and declare a new function component. You can call this whatever you’d like.
 
-## Learn More
+## Name a Functional Component
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+When you create a new functional component, you need to give it a name. In our example, we named our component "MyComponent":
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```jsx
+function MyComponent() {
+  return <h1>Hello world</h1>;
+}
+```
 
-### Code Splitting
+It's important to follow a naming convention for function components. The name should start with a **capital letter** and use **PascalCase**. This convention is specific to React. By capitalizing the name, React understands that it's a component and not an HTML tag.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This is a specific rule in React. If you're creating a component, remember to start its name with a capital letter. If you use a lowercase letter, React will mistake it for a built-in component like `div` or `input`, and it will cause an error.
 
-### Analyzing the Bundle Size
+### Exercises
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Navigate to [FirstComponent.js](./components/FirstComponent.js), and verify that your component name meets the react namig convention.
+If not, correct it.
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+
+
+
+
+
+
+
+
+React applications are composed of components, which are small, reusable chunks of code responsible for specific tasks. One common task is rendering HTML and updating it when data changes.
+
+Let's take a closer look at the code provided:
+
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+
+function MyComponent() {
+  return <h1>Hello world</h1>;
+}
+
+ReactDOM.createRoot(
+  document.getElementById('app')
+).render(<MyComponent />);
+```
+
+In the code snippet above, we have several unfamiliar elements, but don't worry. We will break it down step by step.
+
+- The `import` statements bring in the necessary dependencies, including `React` and `ReactDOM`.
+- The `function MyComponent()` defines a custom React component called `MyComponent`. It returns JSX code that renders an `<h1>` element with the text "Hello world".
+- `ReactDOM.createRoot()` creates a React root to render our component. The `document.getElementById('app')` specifies the target element where the component will be rendered.
+- The `render()` method is called on the created root, with `<MyComponent />` as the JSX content to be rendered.
+
+By understanding the structure and purpose of React components, you are on your way to building dynamic and interactive user interfaces using React.
